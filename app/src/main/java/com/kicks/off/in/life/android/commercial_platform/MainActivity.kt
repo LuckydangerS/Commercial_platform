@@ -7,23 +7,29 @@ import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import com.google.android.material.navigation.NavigationView
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.main_content.*
+import com.kicks.off.`in`.life.android.commercial_platform.databinding.ActivityMainBinding
+
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+    private lateinit var rootElement : ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        rootElement = ActivityMainBinding.inflate(layoutInflater)
+        val view = rootElement.root
+        setContentView(view)
         init()
     }
 
     private fun init(){
 
-        val toggle = ActionBarDrawerToggle(this, drawerLayout,toolbar,
+        val toggle = ActionBarDrawerToggle(this,
+            rootElement.drawerLayout,
+            rootElement.mainContent.toolbar,
             R.string.open, R.string.close)
-        drawerLayout.addDrawerListener(toggle)
+        rootElement.drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
-        navView.setNavigationItemSelectedListener(this)
+        rootElement.navView.setNavigationItemSelectedListener(this)
 
     }
 
@@ -42,7 +48,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.id_sign_out -> {}
 
         }
-        drawerLayout.closeDrawer(GravityCompat.START)
+        rootElement.drawerLayout.closeDrawer(GravityCompat.START)
         return true
     }
 }
