@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "173620968102",
-    "project_id": "commercial-86645",
-    "storage_bucket": "commercial-86645.appspot.com"
+    "project_number": "884790662558",
+    "project_id": "commercial-platform-46acf",
+    "storage_bucket": "commercial-platform-46acf.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:173620968102:android:256decd499bd453d305267",
+        "mobilesdk_app_id": "1:884790662558:android:dd4317964f540f451db28f",
         "android_client_info": {
           "package_name": "com.kicks.off.in.life.android.commercial_platform"
         }
       },
       "oauth_client": [
         {
-          "client_id": "173620968102-q932jo4du8dfl8aquep877skbj550v6s.apps.googleusercontent.com",
+          "client_id": "884790662558-v5cju19b2f4148au7me9dvj6ou3d6d7o.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD2M12tGlfZKeNTs_Mfne4rH-WMi9GGwiw"
+          "current_key": "AIzaSyAS4yB1QO_Q9q6KezNiWjCJhfw29Xp9nUY"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "173620968102-q932jo4du8dfl8aquep877skbj550v6s.apps.googleusercontent.com",
+              "client_id": "884790662558-v5cju19b2f4148au7me9dvj6ou3d6d7o.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
