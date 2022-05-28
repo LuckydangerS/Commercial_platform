@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 Toast.makeText(this, "Presed id_my_ads", Toast.LENGTH_LONG).show()
             }
             R.id.id_car -> {
-                Toast.makeText(this, "Presed id_my_!cvvdfbdf!", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Presed id_my_!vvvv!", Toast.LENGTH_LONG).show()
             }
             R.id.id_pc -> {}
             R.id.id_dm -> {}
