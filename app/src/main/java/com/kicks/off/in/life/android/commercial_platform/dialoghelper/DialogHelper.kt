@@ -10,7 +10,7 @@ import com.kicks.off.`in`.life.android.commercial_platform.databinding.SingDialo
 
 
 class DialogHelper(private val act: MainActivity) {
-    private val accHelper = AccountHelper(act)
+    val accHelper = AccountHelper(act)
 
     fun createSignDialog(index:Int) {
         val builder = AlertDialog.Builder(act)
@@ -27,6 +27,9 @@ class DialogHelper(private val act: MainActivity) {
         }
         rootDialogElement.btForgetP.setOnClickListener {
             setOnClickResetPassword(rootDialogElement, dialog)
+        }
+        rootDialogElement.btGoogleSignIn.setOnClickListener {
+            accHelper.signInWithGoogle()
         }
         dialog.show()
 
