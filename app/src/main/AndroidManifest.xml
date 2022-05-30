@@ -14,7 +14,7 @@
         android:theme="@style/AppTheme.NoActionBar"
         tools:targetApi="31">
         <activity
-            android:name=".EditAdsAct"
+            android:name=".act.EditAdsAct"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
