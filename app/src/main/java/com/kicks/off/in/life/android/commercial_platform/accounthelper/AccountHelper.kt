@@ -48,7 +48,7 @@ class AccountHelper(private val act: MainActivity) {
     }
     private fun getSignInClient() : GoogleSignInClient {
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(act.getString(com.firebase.ui.auth.R.string.default_web_client_id)).build()
+            .requestIdToken(act.getString(com.firebase.ui.auth.R.string.default_web_client_id)).requestEmail().build()
         return GoogleSignIn.getClient(act, gso)
     }
     fun signInWithGoogle(){
@@ -61,6 +61,7 @@ class AccountHelper(private val act: MainActivity) {
         act.mAuth.signInWithCredential(credential).addOnCompleteListener { task ->
             if (task.isSuccessful){
                 Toast.makeText(act, "Sign in done", Toast.LENGTH_LONG).show()
+                act.uiUpdate(task.result?.user)
             }
         }
     }
