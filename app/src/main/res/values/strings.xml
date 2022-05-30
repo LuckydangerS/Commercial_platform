@@ -28,6 +28,7 @@
     <string name="send_verification_error">Не удалось отпраить email для подтверждения!</string>
     <string name="send_verification_done">
         На вашу почту была отпралена ссылка для подтверждения вашего аккаунта!</string>
-
+    <!-- Sign Dialog -->
+    <string name="link_done">Email успешно подключен Google аккаунту</string>
 
 </resources>
