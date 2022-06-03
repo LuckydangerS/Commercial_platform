@@ -32,6 +32,7 @@ class DialogHelper(private val act: MainActivity) {
             accHelper.signInWithGoogle()
             dialog.dismiss()
         }
+        dialog.setCanceledOnTouchOutside(false)
         dialog.show()
 
     }
