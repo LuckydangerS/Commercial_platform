@@ -1,10 +1,11 @@
-package com.kicks.off.inn.life.android.commercial_platform.act
+package com.kicks.off.`in`.life.android.commercial_platform.act
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.kicks.off.inn.life.android.commercial_platform.databinding.ActivityEditAdsBinding
-import com.kicks.off.inn.life.android.commercial_platform.dialogs.DialogSpinnerHelper
-import com.kicks.off.inn.life.android.commercial_platform.utils.CityHelper
+import android.widget.ArrayAdapter
+import com.kicks.off.`in`.life.android.commercial_platform.databinding.ActivityEditAdsBinding
+import com.kicks.off.`in`.life.android.commercial_platform.dialogs.DialogSpinnerHelper
+import com.kicks.off.`in`.life.android.commercial_platform.utils.CityHelper
 
 class EditAdsAct : AppCompatActivity() {
     private lateinit var rootElement:ActivityEditAdsBinding

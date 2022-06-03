@@ -1,4 +1,4 @@
-package com.kicks.off.inn.life.android.commercial_platform
+package com.kicks.off.`in`.life.android.commercial_platform
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -15,21 +15,11 @@ import com.google.android.gms.common.api.ApiException
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.kicks.off.`in`.life.android.commercial_platform.R
+import com.kicks.off.`in`.life.android.commercial_platform.act.EditAdsAct
 import com.kicks.off.`in`.life.android.commercial_platform.databinding.ActivityMainBinding
-
-//import com.kicks.off.`in`.life.android.commercial_platform.R
-//import com.kicks.off.`in`.life.android.commercial_platform.databinding.ActivityMainBinding
-import com.kicks.off.inn.life.android.commercial_platform.R
-import com.kicks.off.inn.life.android.commercial_platform.databinding.ActivityMainBinding
-import com.kicks.off.inn.life.android.commercial_platform.R
-import com.kicks.off.inn.life.android.commercial_platform.R
-import com.kicks.off.inn.life.android.commercial_platform.databinding.ActivityMainBinding
-import com.kicks.off.inn.life.android.commercial_platform.act.EditAdsAct
-//import com.kicks.off.inn.life.android.commercial_platform.databinding.ActivityMainBinding
-import com.kicks.off.inn.life.android.commercial_platform.dialoghelper.DialogConst
-import com.kicks.off.inn.life.android.commercial_platform.dialoghelper.DialogHelper
-import com.kicks.off.inn.life.android.commercial_platform.dialoghelper.GoogleAccConst
+import com.kicks.off.`in`.life.android.commercial_platform.dialoghelper.DialogConst
+import com.kicks.off.`in`.life.android.commercial_platform.dialoghelper.DialogHelper
+import com.kicks.off.`in`.life.android.commercial_platform.dialoghelper.GoogleAccConst
 
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {

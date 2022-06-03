@@ -1,15 +1,12 @@
-package com.kicks.off.inn.life.android.commercial_platform.dialoghelper
+package com.kicks.off.`in`.life.android.commercial_platform.dialoghelper
 
 import android.app.AlertDialog
 import android.view.View
 import android.widget.Toast
+import com.kicks.off.`in`.life.android.commercial_platform.MainActivity
 import com.kicks.off.`in`.life.android.commercial_platform.R
-import com.kicks.off.inn.life.android.commercial_platform.R
+import com.kicks.off.`in`.life.android.commercial_platform.accounthelper.AccountHelper
 import com.kicks.off.`in`.life.android.commercial_platform.databinding.SingDialogBinding
-import com.kicks.off.inn.life.android.commercial_platform.MainActivity
-import com.kicks.off.inn.life.android.commercial_platform.R
-import com.kicks.off.inn.life.android.commercial_platform.accounthelper.AccountHelper
-import com.kicks.off.inn.life.android.commercial_platform.databinding.SingDialogBinding
 
 
 class DialogHelper(private val act: MainActivity) {
@@ -35,7 +32,6 @@ class DialogHelper(private val act: MainActivity) {
             accHelper.signInWithGoogle()
             dialog.dismiss()
         }
-        dialog.setCanceledOnTouchOutside(false)
         dialog.show()
 
     }

@@ -1,4 +1,4 @@
-package com.kicks.off.inn.life.android.commercial_platform
+package com.kicks.off.`in`.life.android.commercial_platform
 
 import org.junit.Test
 

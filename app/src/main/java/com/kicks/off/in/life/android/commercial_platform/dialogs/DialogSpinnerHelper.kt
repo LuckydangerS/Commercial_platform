@@ -1,4 +1,4 @@
-package com.kicks.off.inn.life.android.commercial_platform.dialogs
+package com.kicks.off.`in`.life.android.commercial_platform.dialogs
 
 import android.app.AlertDialog
 import android.content.Context
@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.kicks.off.`in`.life.android.commercial_platform.R
-import com.kicks.off.inn.life.android.commercial_platform.R
 
 class DialogSpinnerHelper {
 
