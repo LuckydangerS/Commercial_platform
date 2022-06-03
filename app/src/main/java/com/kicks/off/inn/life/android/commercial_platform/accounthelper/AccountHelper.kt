@@ -1,4 +1,4 @@
-package com.kicks.off.`in`.life.android.commercial_platform.accounthelper
+package com.kicks.off.inn.life.android.commercial_platform.accounthelper
 
 import android.util.Log
 import android.widget.Toast
@@ -6,10 +6,10 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.*
-import com.kicks.off.`in`.life.android.commercial_platform.MainActivity
-import com.kicks.off.`in`.life.android.commercial_platform.R
-import com.kicks.off.`in`.life.android.commercial_platform.constans.FirebaseAuthConstans
-import com.kicks.off.`in`.life.android.commercial_platform.dialoghelper.GoogleAccConst
+import com.kicks.off.inn.life.android.commercial_platform.MainActivity
+import com.kicks.off.inn.life.android.commercial_platform.R
+import com.kicks.off.inn.life.android.commercial_platform.constans.FirebaseAuthConstans
+import com.kicks.off.inn.life.android.commercial_platform.dialoghelper.GoogleAccConst
 
 class AccountHelper(private val act: MainActivity) {
 

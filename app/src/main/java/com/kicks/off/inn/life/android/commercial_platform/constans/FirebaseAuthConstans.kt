@@ -1,4 +1,4 @@
-package com.kicks.off.`in`.life.android.commercial_platform.constans
+package com.kicks.off.inn.life.android.commercial_platform.constans
 
 object FirebaseAuthConstans {
     const val ERROR_EMAIL_ALREADY_IN_USE = "ERROR_EMAIL_ALREADY_IN_USE"

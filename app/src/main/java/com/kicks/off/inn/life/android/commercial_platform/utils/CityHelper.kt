@@ -1,4 +1,4 @@
-package com.kicks.off.`in`.life.android.commercial_platform.utils
+package com.kicks.off.inn.life.android.commercial_platform.utils
 
 import android.content.Context
 import org.json.JSONObject

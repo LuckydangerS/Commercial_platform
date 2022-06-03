@@ -1,4 +1,4 @@
-package com.kicks.off.`in`.life.android.commercial_platform.dialoghelper
+package com.kicks.off.inn.life.android.commercial_platform.dialoghelper
 
 object DialogConst {
     const val SIGN_UP_STATE = 0

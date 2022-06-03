@@ -1,4 +1,4 @@
-package com.kicks.off.`in`.life.android.commercial_platform.dialogs
+package com.kicks.off.inn.life.android.commercial_platform.dialogs
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.kicks.off.`in`.life.android.commercial_platform.R
+
 
 class RcViewDialogSpinner : RecyclerView.Adapter<RcViewDialogSpinner.SpViewHolder>() {
     val mainList = ArrayList<String>()

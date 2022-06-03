@@ -1,4 +1,4 @@
-package com.kicks.off.`in`.life.android.commercial_platform
+package com.kicks.off.inn.life.android.commercial_platform
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
