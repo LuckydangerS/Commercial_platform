@@ -23,7 +23,7 @@ import com.kicks.off.`in`.life.android.commercial_platform.dialoghelper.GoogleAc
 
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
-    private lateinit var tvAccount:TextView
+/*    private lateinit var tvAccount:TextView
     private lateinit var rootElement : ActivityMainBinding
     private val dialogHelper = DialogHelper(this)
     val mAuth = FirebaseAuth.getInstance()
@@ -34,8 +34,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val view = rootElement.root
         setContentView(view)
         init()
-    }
-/*    private lateinit var tvAccount:TextView
+    }*/
+    private lateinit var tvAccount:TextView
 
     private val binding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         init()
-    }*/
+    }
 
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -87,16 +87,16 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     private fun init(){
-        setSupportActionBar(rootElement.mainContent.toolbar)
+        setSupportActionBar(binding.mainContent.toolbar)
 
         val toggle = ActionBarDrawerToggle(this,
-            rootElement.drawerLayout,
-            rootElement.mainContent.toolbar,
+            binding.drawerLayout,
+            binding.mainContent.toolbar,
             R.string.open, R.string.close)
-        rootElement.drawerLayout.addDrawerListener(toggle)
+        binding.drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
-        rootElement.navView.setNavigationItemSelectedListener(this)
-        tvAccount = rootElement.navView.getHeaderView(0).findViewById(R.id.tvAccountEmail)
+        binding.navView.setNavigationItemSelectedListener(this)
+        tvAccount = binding.navView.getHeaderView(0).findViewById(R.id.tvAccountEmail)
 
     }
 
@@ -126,7 +126,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
 
         }
-        rootElement.drawerLayout.closeDrawer(GravityCompat.START)
+        binding.drawerLayout.closeDrawer(GravityCompat.START)
         return true
     }
 
