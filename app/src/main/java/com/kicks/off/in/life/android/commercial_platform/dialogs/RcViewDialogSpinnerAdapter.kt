@@ -10,13 +10,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.kicks.off.`in`.life.android.commercial_platform.R
 import com.kicks.off.`in`.life.android.commercial_platform.act.EditAdsAct
 
-class RcViewDialogSpinnerAdapter(var context: Context, var dialog: AlertDialog) : RecyclerView.Adapter<RcViewDialogSpinnerAdapter.SpViewHolder>() {
+class RcViewDialogSpinnerAdapter(var tvSelection: TextView, var dialog: AlertDialog) : RecyclerView.Adapter<RcViewDialogSpinnerAdapter.SpViewHolder>() {
     val mainList = ArrayList<String>()
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SpViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.sp_list_item,parent, false)
-        return SpViewHolder(view, context, dialog)
+        return SpViewHolder(view, tvSelection, dialog)
     }
 
     override fun onBindViewHolder(holder: SpViewHolder, position: Int) {
@@ -26,7 +26,7 @@ class RcViewDialogSpinnerAdapter(var context: Context, var dialog: AlertDialog) 
     override fun getItemCount(): Int {
         return mainList.size
     }
-    class SpViewHolder(itemView: View, var context: Context, var dialog: AlertDialog) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+    class SpViewHolder(itemView: View, var tvSelection: TextView, var dialog: AlertDialog) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
         private var itemText = ""
 
         fun setData(text : String){
@@ -38,7 +38,7 @@ class RcViewDialogSpinnerAdapter(var context: Context, var dialog: AlertDialog) 
         }
 
         override fun onClick(v: View?) {
-            (context as EditAdsAct).binding.tvCountry.text = itemText
+            tvSelection.text = itemText
             dialog.dismiss()
         }
 
