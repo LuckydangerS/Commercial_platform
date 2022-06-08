@@ -3,7 +3,6 @@ package com.kicks.off.`in`.life.android.commercial_platform.dialogs
 import android.app.AlertDialog
 import android.content.Context
 import android.view.LayoutInflater
-import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.kicks.off.`in`.life.android.commercial_platform.R
@@ -13,21 +12,24 @@ class DialogSpinnerHelper {
 
     fun showSpinnerDialog(context: Context,list: ArrayList<String>){
         val builder = AlertDialog.Builder(context)
+        val dialog = builder.create()
         val rootView = LayoutInflater.from(context).inflate(R.layout.spinner_layout, null)
-        val adapter = RcViewDialogSpinner()
+        val adapter = RcViewDialogSpinnerAdapter(context, dialog)
         val rcView = rootView.findViewById<RecyclerView>(R.id.rcSpView)
         val sv = rootView.findViewById<android.widget.SearchView>(R.id.svSpinner)
         rcView.layoutManager = LinearLayoutManager(context)
         rcView.adapter = adapter
 
-        builder.setView(rootView)
+        dialog.setView(rootView)
         adapter.updateAdapter(list)
         setSearchView(adapter, list, sv)
-        builder.show()
+
+        dialog.show()
+
 
     }
 
-    private fun setSearchView(adapter: RcViewDialogSpinner, list: ArrayList<String>, sv: android.widget.SearchView?) {
+    private fun setSearchView(adapter: RcViewDialogSpinnerAdapter, list: ArrayList<String>, sv: android.widget.SearchView?) {
         sv?.setOnQueryTextListener(object : android.widget.SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return false
