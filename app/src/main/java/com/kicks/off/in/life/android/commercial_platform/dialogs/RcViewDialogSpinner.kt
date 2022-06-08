@@ -10,8 +10,6 @@ import com.kicks.off.`in`.life.android.commercial_platform.R
 class RcViewDialogSpinner : RecyclerView.Adapter<RcViewDialogSpinner.SpViewHolder>() {
     val mainList = ArrayList<String>()
 
-
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SpViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.sp_list_item,parent, false)
         return SpViewHolder(view)
