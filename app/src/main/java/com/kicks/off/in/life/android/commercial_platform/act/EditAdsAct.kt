@@ -12,10 +12,12 @@ import com.fxn.utility.PermUtil
 import com.kicks.off.`in`.life.android.commercial_platform.R
 import com.kicks.off.`in`.life.android.commercial_platform.databinding.ActivityEditAdsBinding
 import com.kicks.off.`in`.life.android.commercial_platform.dialogs.DialogSpinnerHelper
+import com.kicks.off.`in`.life.android.commercial_platform.frag.FragmentCloseInterface
+import com.kicks.off.`in`.life.android.commercial_platform.frag.ImageListFrag
 import com.kicks.off.`in`.life.android.commercial_platform.utils.CityHelper
 import com.kicks.off.`in`.life.android.commercial_platform.utils.ImagePicker
 
-class EditAdsAct : AppCompatActivity() {
+class EditAdsAct : AppCompatActivity(), FragmentCloseInterface {
     lateinit var binding:ActivityEditAdsBinding
     private var dialog = DialogSpinnerHelper()
     //private var isImagesPermissionGranted = false
@@ -87,8 +89,16 @@ class EditAdsAct : AppCompatActivity() {
 
     }
     fun onClickGetImages(view: View){
-        ImagePicker.getImages(this)
+        binding.scroolViewMain.visibility = View.GONE
+        val fm = supportFragmentManager.beginTransaction()
+        fm.replace(R.id.place_holder, ImageListFrag(this))
+        fm.commit()
 
+
+    }
+
+    override fun onFragClose() {
+        binding.scroolViewMain.visibility = View.VISIBLE
 
     }
 }
