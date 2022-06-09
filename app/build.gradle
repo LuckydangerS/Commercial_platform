@@ -51,9 +51,10 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:30.1.0')
     implementation 'com.google.firebase:firebase-auth-ktx:21.0.5'
     implementation 'com.google.android.gms:play-services-auth:20.2.0'
-    implementation files('libs/pix-1.5.6.aar')
+ //   implementation files('libs/pix-1.5.6.aar')
 //    implementation 'com.android.car.ui:car-ui-lib:2.2.1'
 //    implementation  'io.ak1.pix:piximagepicker:1.6.3'
+    implementation("com.fxn769:pix:1.5.6")
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
