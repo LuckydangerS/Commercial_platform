@@ -10,17 +10,19 @@ import android.widget.Toast
 import com.fxn.pix.Pix
 import com.fxn.utility.PermUtil
 import com.kicks.off.`in`.life.android.commercial_platform.R
+import com.kicks.off.`in`.life.android.commercial_platform.adapters.ImageAdapter
 import com.kicks.off.`in`.life.android.commercial_platform.databinding.ActivityEditAdsBinding
 import com.kicks.off.`in`.life.android.commercial_platform.dialogs.DialogSpinnerHelper
 import com.kicks.off.`in`.life.android.commercial_platform.frag.FragmentCloseInterface
 import com.kicks.off.`in`.life.android.commercial_platform.frag.ImageListFrag
+import com.kicks.off.`in`.life.android.commercial_platform.frag.SelectImageItem
 import com.kicks.off.`in`.life.android.commercial_platform.utils.CityHelper
 import com.kicks.off.`in`.life.android.commercial_platform.utils.ImagePicker
 
 class EditAdsAct : AppCompatActivity(), FragmentCloseInterface {
     lateinit var binding:ActivityEditAdsBinding
     private var dialog = DialogSpinnerHelper()
-    //private var isImagesPermissionGranted = false
+    private lateinit var imageAdapter : ImageAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -71,6 +73,8 @@ class EditAdsAct : AppCompatActivity(), FragmentCloseInterface {
     }
 
     private fun init(){
+        imageAdapter = ImageAdapter()
+        binding.vpimages.adapter = imageAdapter
 
     }
 
@@ -98,8 +102,9 @@ class EditAdsAct : AppCompatActivity(), FragmentCloseInterface {
         ImagePicker.getImages(this, 3)
     }
 
-    override fun onFragClose() {
+    override fun onFragClose(list : ArrayList<SelectImageItem>) {
         binding.scroolViewMain.visibility = View.VISIBLE
+        imageAdapter.update(list)
 
     }
 }
