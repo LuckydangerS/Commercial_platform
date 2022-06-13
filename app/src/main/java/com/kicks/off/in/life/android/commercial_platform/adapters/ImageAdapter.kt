@@ -7,11 +7,10 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.kicks.off.`in`.life.android.commercial_platform.R
-import com.kicks.off.`in`.life.android.commercial_platform.frag.SelectImageItem
 
 
 class ImageAdapter : RecyclerView.Adapter<ImageAdapter.ImageHolder>() {
-    private val mainArray = ArrayList<SelectImageItem>()
+    val mainArray = ArrayList<String>()
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageHolder {
@@ -20,7 +19,7 @@ class ImageAdapter : RecyclerView.Adapter<ImageAdapter.ImageHolder>() {
     }
 
     override fun onBindViewHolder(holder: ImageHolder, position: Int) {
-        holder.setData(mainArray[position].imageUri)
+        holder.setData(mainArray[position])
     }
 
     override fun getItemCount(): Int {
@@ -38,7 +37,7 @@ class ImageAdapter : RecyclerView.Adapter<ImageAdapter.ImageHolder>() {
 
     }
 
-    fun update(newList : ArrayList<SelectImageItem>){
+    fun update(newList : ArrayList<String>){
         mainArray.clear()
         mainArray.addAll(newList)
         notifyDataSetChanged()
