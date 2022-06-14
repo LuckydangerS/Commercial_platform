@@ -15,6 +15,7 @@ import com.kicks.off.`in`.life.android.commercial_platform.dialogs.DialogSpinner
 import com.kicks.off.`in`.life.android.commercial_platform.frag.FragmentCloseInterface
 import com.kicks.off.`in`.life.android.commercial_platform.frag.ImageListFrag
 import com.kicks.off.`in`.life.android.commercial_platform.utils.CityHelper
+import com.kicks.off.`in`.life.android.commercial_platform.utils.ImageManager
 import com.kicks.off.`in`.life.android.commercial_platform.utils.ImagePicker
 
 class EditAdsAct : AppCompatActivity(), FragmentCloseInterface {
@@ -46,7 +47,9 @@ class EditAdsAct : AppCompatActivity(), FragmentCloseInterface {
 
                 } else if (returnValues.size == 1 && chooseImageFrag == null) {
 
-                    imageAdapter.update(returnValues)
+
+                  //  imageAdapter.update(returnValues)
+                    val tempList = ImageManager.getImageSize(returnValues[0])
 
                 } else if (chooseImageFrag != null) {
 
