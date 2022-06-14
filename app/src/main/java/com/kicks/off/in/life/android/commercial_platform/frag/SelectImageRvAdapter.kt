@@ -23,7 +23,7 @@ class SelectImageRvAdapter : RecyclerView.Adapter<SelectImageRvAdapter.ImageHold
 
         val view = LayoutInflater.from(parent.context).inflate(
             R.layout.select_image_frag_item, parent, false)
-        return ImageHolder(view, parent.context)
+        return ImageHolder(view, parent.context, this)
     }
 
     override fun onBindViewHolder(holder: ImageHolder, position: Int) {
@@ -48,15 +48,19 @@ class SelectImageRvAdapter : RecyclerView.Adapter<SelectImageRvAdapter.ImageHold
     }
 
 
-    class ImageHolder(itemView: View, val context: Context) : RecyclerView.ViewHolder(itemView) {
+    class ImageHolder(itemView: View, val context: Context,
+                      val adapter: SelectImageRvAdapter) : RecyclerView.ViewHolder(itemView) {
         lateinit var  tvTitle : TextView
         lateinit var image : ImageView
         lateinit var imEditImage : ImageButton
+        lateinit var imDeleteImage : ImageButton
 
         fun setData(item : String){
             tvTitle = itemView.findViewById(R.id.tvTitle)
             image = itemView.findViewById(R.id.imageContent)
             imEditImage = itemView.findViewById(R.id.imEditeImage)
+            imDeleteImage = itemView.findViewById(R.id.imDelete)
+
             imEditImage.setOnClickListener{
 
                 ImagePicker.getImages(context as EditAdsAct, 1,
@@ -64,6 +68,13 @@ class SelectImageRvAdapter : RecyclerView.Adapter<SelectImageRvAdapter.ImageHold
                 context.editImagePos = adapterPosition
 
             }
+            imDeleteImage.setOnClickListener{
+                adapter.mainArray.removeAt(adapterPosition)
+                adapter.notifyItemRemoved(adapterPosition)
+                for (n in 0 until adapter.mainArray.size) adapter.notifyItemChanged(n)
+
+            }
+
             tvTitle.text = context.resources.getStringArray(R.array.title_array)[adapterPosition]
             image.setImageURI(Uri.parse(item))
 
