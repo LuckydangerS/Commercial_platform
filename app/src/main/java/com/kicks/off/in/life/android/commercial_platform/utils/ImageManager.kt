@@ -6,6 +6,8 @@ import androidx.exifinterface.media.ExifInterface
 import java.io.File
 
 object ImageManager {
+    const val MAX_IMAGE_SIZE = 1000
+
     fun getImageSize (uri : String) : List<Int>{
 
          val options = BitmapFactory.Options().apply {
@@ -33,5 +35,35 @@ object ImageManager {
         }
 
         return rotation
+    }
+
+    fun imageResize (uris : List<String>){
+        val tempList = ArrayList<List<Int>>()
+        for(n in uris.indices){
+
+            val size = getImageSize(uris[n])
+            val imageRatio = size[0].toFloat() / size[1].toFloat()
+
+            if (imageRatio > 1){
+
+                if (size[0] > MAX_IMAGE_SIZE){
+                    tempList.add(listOf(MAX_IMAGE_SIZE, (MAX_IMAGE_SIZE / imageRatio).toInt()))
+                } else {
+                    tempList.add(listOf(size[0], size[1]))
+                }
+
+            } else{
+                if (size[1] > MAX_IMAGE_SIZE){
+                    tempList.add(listOf((MAX_IMAGE_SIZE * imageRatio).toInt(), MAX_IMAGE_SIZE))
+                } else {
+                    tempList.add(listOf(size[0], size[1]))
+                }
+                }
+
+
+
+        }
+
+
     }
 }

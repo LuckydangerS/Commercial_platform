@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.kicks.off.`in`.life.android.commercial_platform.R
 import com.kicks.off.`in`.life.android.commercial_platform.databinding.ListImageFragBinding
+import com.kicks.off.`in`.life.android.commercial_platform.utils.ImageManager
 import com.kicks.off.`in`.life.android.commercial_platform.utils.ImagePicker
 import com.kicks.off.`in`.life.android.commercial_platform.utils.ItemTouchMoveCallback
 
@@ -39,7 +40,8 @@ class ImageListFrag(private val fragCloseInterface : FragmentCloseInterface,
         touchHelper.attachToRecyclerView(binding.rcViewSelectImage)
         binding.rcViewSelectImage.layoutManager = LinearLayoutManager(activity)
         binding.rcViewSelectImage.adapter = adapter
-        adapter.updateAdapter(newList, true)
+        ImageManager.imageResize(newList)
+        //adapter.updateAdapter(newList, true)
 
     }
 
