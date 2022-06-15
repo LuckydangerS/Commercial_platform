@@ -1,12 +1,17 @@
 package com.kicks.off.`in`.life.android.commercial_platform.utils
 
+import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import androidx.exifinterface.media.ExifInterface
+import com.squareup.picasso.Picasso
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.withContext
 
 import java.io.File
 
 object ImageManager {
-    const val MAX_IMAGE_SIZE = 1000
+    private const val MAX_IMAGE_SIZE = 1000
 
     fun getImageSize (uri : String) : List<Int>{
 
@@ -37,8 +42,9 @@ object ImageManager {
         return rotation
     }
 
-    fun imageResize (uris : List<String>){
+    suspend fun imageResize (uris : List<String>) : List<Bitmap> = withContext(Dispatchers.IO) {
         val tempList = ArrayList<List<Int>>()
+        val bitmapList = ArrayList<Bitmap>()
         for(n in uris.indices){
 
             val size = getImageSize(uris[n])
@@ -54,15 +60,30 @@ object ImageManager {
 
             } else{
                 if (size[1] > MAX_IMAGE_SIZE){
+
                     tempList.add(listOf((MAX_IMAGE_SIZE * imageRatio).toInt(), MAX_IMAGE_SIZE))
+
                 } else {
+
                     tempList.add(listOf(size[0], size[1]))
-                }
+
                 }
 
+            }
+
+        }
+        for (i in uris.indices) {
+
+            kotlin.runCatching {
+                bitmapList.add(Picasso.get().
+                load(File(uris[i])).resize(tempList[i][0], tempList[i][1]).get())
+            }
 
 
         }
+
+
+        return@withContext bitmapList
 
 
     }

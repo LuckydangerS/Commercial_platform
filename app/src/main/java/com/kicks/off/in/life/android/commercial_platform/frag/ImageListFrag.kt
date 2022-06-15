@@ -1,27 +1,31 @@
 package com.kicks.off.`in`.life.android.commercial_platform.frag
 
+import android.graphics.Bitmap
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.kicks.off.`in`.life.android.commercial_platform.R
 import com.kicks.off.`in`.life.android.commercial_platform.databinding.ListImageFragBinding
 import com.kicks.off.`in`.life.android.commercial_platform.utils.ImageManager
 import com.kicks.off.`in`.life.android.commercial_platform.utils.ImagePicker
 import com.kicks.off.`in`.life.android.commercial_platform.utils.ItemTouchMoveCallback
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 
 class ImageListFrag(private val fragCloseInterface : FragmentCloseInterface,
-                    private val newList : ArrayList<String>) : Fragment() {
+                    private val newList : ArrayList<String>?) : Fragment() {
     lateinit var binding : ListImageFragBinding
     val adapter = SelectImageRvAdapter()
     private val dragCallback = ItemTouchMoveCallback(adapter)
     val touchHelper = ItemTouchHelper(dragCallback)
+    private var job: Job? = null
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -40,14 +44,22 @@ class ImageListFrag(private val fragCloseInterface : FragmentCloseInterface,
         touchHelper.attachToRecyclerView(binding.rcViewSelectImage)
         binding.rcViewSelectImage.layoutManager = LinearLayoutManager(activity)
         binding.rcViewSelectImage.adapter = adapter
-        ImageManager.imageResize(newList)
-        //adapter.updateAdapter(newList, true)
+        if (newList != null) {
+            job = CoroutineScope(Dispatchers.Main).launch {
+                val bitmapList = ImageManager.imageResize(newList)
+                adapter.updateAdapter(bitmapList, true)
+            }
+        }
 
+    }
+    fun updateAdapterFromEdit(bitmapList: List<Bitmap>){
+        adapter.updateAdapter(bitmapList, true)
     }
 
     override fun onDetach() {
         super.onDetach()
         fragCloseInterface.onFragClose(adapter.mainArray)
+        job?.cancel()
     }
 
     private fun setUpToolbar(){
@@ -73,11 +85,20 @@ class ImageListFrag(private val fragCloseInterface : FragmentCloseInterface,
 
     fun updateAdapter(newList : ArrayList<String>){
 
-        adapter.updateAdapter(newList, false)
+        job = CoroutineScope(Dispatchers.Main).launch {
+            val bitmapList = ImageManager.imageResize(newList)
+            adapter.updateAdapter(bitmapList, false)
+        }
+
     }
 
     fun  setSingleImage(uri : String, pos : Int){
-        adapter.mainArray[pos] = uri
-        adapter.notifyDataSetChanged()
+
+        job = CoroutineScope(Dispatchers.Main).launch {
+            val bitmapList = ImageManager.imageResize(listOf(uri))
+            adapter.mainArray[pos] = bitmapList[0]
+            adapter.notifyDataSetChanged()
+        }
+
     }
 }
