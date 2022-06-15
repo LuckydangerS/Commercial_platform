@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.kicks.off.`in`.life.android.commercial_platform.R
@@ -55,6 +56,7 @@ class SelectImageRvAdapter : RecyclerView.Adapter<SelectImageRvAdapter.ImageHold
         lateinit var image : ImageView
         lateinit var imEditImage : ImageButton
         lateinit var imDeleteImage : ImageButton
+
 
         fun setData(bitmap : Bitmap){
             tvTitle = itemView.findViewById(R.id.tvTitle)
