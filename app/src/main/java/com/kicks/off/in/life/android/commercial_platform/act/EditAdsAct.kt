@@ -20,10 +20,10 @@ import com.kicks.off.`in`.life.android.commercial_platform.utils.ImageManager
 import com.kicks.off.`in`.life.android.commercial_platform.utils.ImagePicker
 
 class EditAdsAct : AppCompatActivity(), FragmentCloseInterface {
-    private var chooseImageFrag : ImageListFrag? = null
+    var chooseImageFrag : ImageListFrag? = null
     lateinit var binding:ActivityEditAdsBinding
     private var dialog = DialogSpinnerHelper()
-    private lateinit var imageAdapter : ImageAdapter
+    lateinit var imageAdapter : ImageAdapter
     var editImagePos = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,38 +36,9 @@ class EditAdsAct : AppCompatActivity(), FragmentCloseInterface {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-
-        if (resultCode == RESULT_OK && requestCode == ImagePicker.REQUEST_CODE_GET_IMAGES) {
-
-            if (data != null) {
-
-                val returnValues = data.getStringArrayListExtra(Pix.IMAGE_RESULTS)
-                if (returnValues?.size!! > 1 && chooseImageFrag == null) {
-
-                    openChooseImageFrag(returnValues)
-
-                } else if (returnValues.size == 1 && chooseImageFrag == null) {
+        ImagePicker.showSelectedImages(resultCode, requestCode, data, this)
 
 
-                  //  imageAdapter.update(returnValues)
-                    val tempList = ImageManager.getImageSize(returnValues[0])
-
-                } else if (chooseImageFrag != null) {
-
-                    chooseImageFrag?.updateAdapter(returnValues)
-
-                }
-
-
-            }
-        } else if (resultCode == RESULT_OK && requestCode == ImagePicker.REQUEST_CODE_GET_SINGLE_IMAGES){
-            if (data != null) {
-
-                val uris = data.getStringArrayListExtra(Pix.IMAGE_RESULTS)
-
-            chooseImageFrag?.setSingleImage( uris?.get(0)!!, editImagePos)
-                }
-        }
     }
 
     override fun onRequestPermissionsResult(
@@ -136,7 +107,7 @@ class EditAdsAct : AppCompatActivity(), FragmentCloseInterface {
 
     }
 
-    private fun openChooseImageFrag(newList: ArrayList<String>?){
+    fun openChooseImageFrag(newList: ArrayList<String>?){
 
         chooseImageFrag = ImageListFrag(this, newList)
         binding.scroolViewMain.visibility = View.GONE

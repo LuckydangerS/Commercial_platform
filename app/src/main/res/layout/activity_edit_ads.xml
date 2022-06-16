@@ -51,6 +51,17 @@
                     app:layout_constraintTop_toTopOf="@+id/vpimages"
                     app:srcCompat="@android:drawable/ic_menu_edit" />
 
+                <ProgressBar
+                    android:id="@+id/pBarLoad"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@+id/vpimages"
+                    app:layout_constraintEnd_toEndOf="@+id/vpimages"
+                    app:layout_constraintStart_toStartOf="@+id/vpimages"
+                    app:layout_constraintTop_toTopOf="parent" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
