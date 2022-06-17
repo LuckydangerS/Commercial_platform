@@ -72,33 +72,200 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
-            <TextView
-                android:id="@+id/tvCountry"
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:background="@android:drawable/editbox_background_normal"
-                android:backgroundTint="@color/grey"
-                android:gravity="center"
-                android:minHeight="48dp"
-                android:onClick="onClickSelectCountry"
-                android:padding="10dp"
-                android:text="@string/select_country"
-                android:textColor="@color/black" />
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                app:cardBackgroundColor="@color/grey"
+                app:cardCornerRadius="5dp">
 
-            <TextView
-                android:id="@+id/tvCity"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvTitleCountry"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/country"
+                        android:textColor="@color/green_main"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvCountry"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/grey"
+                        android:gravity="start"
+                        android:minHeight="48dp"
+                        android:onClick="onClickSelectCountry"
+                        android:padding="10dp"
+                        android:text="@string/select_country"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/cardview_dark_background"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvTitleSity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/city"
+                        android:textColor="@color/green_main"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvCity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/grey"
+                        android:gravity="start"
+                        android:minHeight="48dp"
+                        android:onClick="onClickSelectCity"
+                        android:padding="10dp"
+                        android:text="@string/select_city"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/cardview_dark_background"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvTitleTel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/tel"
+                        android:textColor="@color/green_main"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/editTel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:ems="10"
+                        android:hint="@string/tel_number"
+                        android:inputType="phone"
+                        android:minHeight="48dp"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tvTitleDescription2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/send"
+                        android:textColor="@color/green_main"
+                        android:textStyle="bold" />
+
+                    <CheckBox
+                        android:id="@+id/checkBoxWithSend"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:text="@string/with_send" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                app:cardBackgroundColor="@color/grey"
+                app:cardCornerRadius="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvTitleCat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/category"
+                        android:textColor="@color/green_main"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvCat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/grey"
+                        android:gravity="start"
+                        android:minHeight="48dp"
+                        android:onClick="onClickSelectCat"
+                        android:padding="10dp"
+                        android:text="@string/select_category"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/cardview_dark_background"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvTitlePrice"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/price"
+                        android:textColor="@color/green_main"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/edPrice"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/grey"
+                        android:gravity="start"
+                        android:minHeight="48dp"
+                        android:onClick="onClickSelectCity"
+                        android:padding="10dp"
+                        android:text="@string/price_hint"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/cardview_dark_background"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvTitleDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/description"
+                        android:textColor="@color/green_main"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/editDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:ems="10"
+                        android:hint="@string/description_hint"
+                        android:inputType="textAutoCorrect|text"
+                        android:minHeight="48dp"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <Button
+                android:id="@+id/btPublish"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:background="@android:drawable/editbox_background_normal"
+                android:layout_marginBottom="5dp"
                 android:backgroundTint="@color/grey"
-                android:gravity="center"
-                android:minHeight="48dp"
-                android:onClick="onClickSelectCity"
-                android:padding="10dp"
-                android:text="@string/select_city"
-                android:textColor="@color/black" />
+                android:text="@string/publish"
+                android:textColor="@color/green_main" />
 
         </LinearLayout>
     </ScrollView>

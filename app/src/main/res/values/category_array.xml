@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="category">
+        <item>АВТОМОБИЛИ</item>
+        <item>КОМПЬЮТЕРЫ</item>
+        <item>СМАРФОНЫ</item>
+        <item>БЫТОВАЯ ТЕХНИКА</item>
+    </string-array>
+</resources>

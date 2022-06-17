@@ -86,7 +86,12 @@ class EditAdsAct : AppCompatActivity(), FragmentCloseInterface {
         } else {
             Toast.makeText(this, "No country selected", Toast.LENGTH_LONG).show()
         }
+    }
 
+    fun onClickSelectCat(view: View){
+
+            val listCity = resources.getStringArray(R.array.category).toMutableList() as ArrayList
+            dialog.showSpinnerDialog(this, listCity, binding.tvCat)
 
     }
     fun onClickGetImages(view: View){

@@ -33,8 +33,22 @@
     <!-- Sign Dialog -->
     <string name="link_done">Email успешно подключен Google аккаунту</string>
     <!-- Edit Activity -->
-    <string name="select_country">*Выберите страну</string>
-    <string name="select_city">*Выберите город</string>
+    <string name="select_country">*ВЫБЕРИТЕ СТРАНУ</string>
+    <string name="select_city">*ВЫБЕРИТЕ ГОРОД</string>
+    <string name="country">СТРАНА</string>
+    <string name="city">ГОРОД</string>
+    <string name="index">ИНДЕКС</string>
+    <string name="tel">ТЕЛЕФОН</string>
+    <string name="tel_number">*НОМЕР ТЕЛЕФОНА</string>
+    <string name="category">КАТЕГОРИЯ</string>
+    <string name="select_category">*ВЫБЕРИТЕ КАТЕГОРИЮ</string>
+    <string name="price">ЦЕНА</string>
+    <string name="price_hint">*УКАЖИТЕ ЦЕНУ</string>
+    <string name="description">ОПИСАНИЕ</string>
+    <string name="description_hint">*УКАЖИТЕ ОПИСАНИЕ</string>
+    <string name="with_send">С ОТПРАВКОЙ</string>
+    <string name="send">ОТПРАВКА</string>
+    <string name="publish">ОПУБЛИКОВАТЬ</string>
 
 
 
