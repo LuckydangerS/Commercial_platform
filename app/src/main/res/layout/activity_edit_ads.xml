@@ -5,6 +5,7 @@
     android:id="@+id/place_holder"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/cardview_dark_background"
     tools:context=".act.EditAdsAct">
 
     <ScrollView
@@ -19,50 +20,57 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             android:orientation="vertical">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="5dp">
+                app:cardBackgroundColor="@color/grey"
+                app:cardCornerRadius="5dp">
 
-                <androidx.viewpager2.widget.ViewPager2
-                    android:id="@+id/vpimages"
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:layout_margin="5dp"
-                    android:background="@android:drawable/editbox_background"
-                    android:padding="10dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp">
 
-                </androidx.viewpager2.widget.ViewPager2>
+                    <androidx.viewpager2.widget.ViewPager2
+                        android:id="@+id/vpimages"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:padding="5dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
 
-                <ImageButton
-                    android:id="@+id/imageButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:onClick="onClickGetImages"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/vpimages"
-                    app:srcCompat="@android:drawable/ic_menu_edit" />
+                    </androidx.viewpager2.widget.ViewPager2>
 
-                <ProgressBar
-                    android:id="@+id/pBarLoad"
-                    style="?android:attr/progressBarStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:visibility="gone"
-                    app:layout_constraintBottom_toBottomOf="@+id/vpimages"
-                    app:layout_constraintEnd_toEndOf="@+id/vpimages"
-                    app:layout_constraintStart_toStartOf="@+id/vpimages"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    <ImageButton
+                        android:id="@+id/imageButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:backgroundTint="@color/cardview_dark_background"
+                        android:onClick="onClickGetImages"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/vpimages"
+                        app:srcCompat="@android:drawable/ic_menu_add" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    <ProgressBar
+                        android:id="@+id/pBarLoad"
+                        style="?android:attr/progressBarStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="@+id/vpimages"
+                        app:layout_constraintEnd_toEndOf="@+id/vpimages"
+                        app:layout_constraintStart_toStartOf="@+id/vpimages"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
 
             <TextView
                 android:id="@+id/tvCountry"
@@ -70,6 +78,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:background="@android:drawable/editbox_background_normal"
+                android:backgroundTint="@color/grey"
                 android:gravity="center"
                 android:minHeight="48dp"
                 android:onClick="onClickSelectCountry"
@@ -83,6 +92,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:background="@android:drawable/editbox_background_normal"
+                android:backgroundTint="@color/grey"
                 android:gravity="center"
                 android:minHeight="48dp"
                 android:onClick="onClickSelectCity"

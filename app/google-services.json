@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "884790662558",
+    "firebase_url": "https://commercial-platform-46acf-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "commercial-platform-46acf",
     "storage_bucket": "commercial-platform-46acf.appspot.com"
   },
@@ -13,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "884790662558-043stg6b7gdvh2djde0q9m0kkbqq2964.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kicks.off.in.life.android.commercial_platform",
+            "certificate_hash": "aef1d45ede8e78e2329e62f71d0e93acd7abe5a0"
+          }
+        },
         {
           "client_id": "884790662558-v5cju19b2f4148au7me9dvj6ou3d6d7o.apps.googleusercontent.com",
           "client_type": 3

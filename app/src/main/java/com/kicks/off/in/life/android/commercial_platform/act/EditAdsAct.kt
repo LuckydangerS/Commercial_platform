@@ -11,6 +11,7 @@ import com.fxn.pix.Pix
 import com.fxn.utility.PermUtil
 import com.kicks.off.`in`.life.android.commercial_platform.R
 import com.kicks.off.`in`.life.android.commercial_platform.adapters.ImageAdapter
+import com.kicks.off.`in`.life.android.commercial_platform.database.DbManager
 import com.kicks.off.`in`.life.android.commercial_platform.databinding.ActivityEditAdsBinding
 import com.kicks.off.`in`.life.android.commercial_platform.dialogs.DialogSpinnerHelper
 import com.kicks.off.`in`.life.android.commercial_platform.frag.FragmentCloseInterface
@@ -98,6 +99,11 @@ class EditAdsAct : AppCompatActivity(), FragmentCloseInterface {
             chooseImageFrag?.updateAdapterFromEdit(imageAdapter.mainArray)
         }
 
+    }
+
+    fun onClickPublish(view: View){
+        val dbManager = DbManager()
+        dbManager.publishAd()
     }
 
     override fun onFragClose(list : ArrayList<Bitmap>) {
