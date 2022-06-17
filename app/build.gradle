@@ -53,6 +53,7 @@ dependencies {
     implementation 'com.google.android.gms:play-services-auth:20.2.0'
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2'
+    implementation 'com.google.android.gms:play-services-ads:21.0.0'
 
  //   implementation files('libs/pix-1.5.6.aar')
 //    implementation 'com.android.car.ui:car-ui-lib:2.2.1'

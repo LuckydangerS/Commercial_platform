@@ -4,13 +4,11 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.ImageButton
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.kicks.off.`in`.life.android.commercial_platform.R
 import com.kicks.off.`in`.life.android.commercial_platform.act.EditAdsAct
 import com.kicks.off.`in`.life.android.commercial_platform.databinding.SelectImageFragItemBinding
+import com.kicks.off.`in`.life.android.commercial_platform.utils.AdapterCallback
 import com.kicks.off.`in`.life.android.commercial_platform.utils.ImageManager
 import com.kicks.off.`in`.life.android.commercial_platform.utils.ImagePicker
 import com.kicks.off.`in`.life.android.commercial_platform.utils.ItemTouchMoveCallback

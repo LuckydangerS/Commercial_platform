@@ -10,12 +10,12 @@ import android.view.ViewGroup
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.get
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kicks.off.`in`.life.android.commercial_platform.R
 import com.kicks.off.`in`.life.android.commercial_platform.databinding.ListImageFragBinding
 import com.kicks.off.`in`.life.android.commercial_platform.dialoghelper.ProgressDialog
+import com.kicks.off.`in`.life.android.commercial_platform.utils.AdapterCallback
 import com.kicks.off.`in`.life.android.commercial_platform.utils.ImageManager
 import com.kicks.off.`in`.life.android.commercial_platform.utils.ImagePicker
 import com.kicks.off.`in`.life.android.commercial_platform.utils.ItemTouchMoveCallback
@@ -25,32 +25,35 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 class ImageListFrag(private val fragCloseInterface : FragmentCloseInterface,
-                    private val newList : ArrayList<String>?) : Fragment(), AdapterCallback {
-    lateinit var binding : ListImageFragBinding
+                    private val newList : ArrayList<String>?) : BaseAdsFrag(), AdapterCallback {
     val adapter = SelectImageRvAdapter(this)
     private val dragCallback = ItemTouchMoveCallback(adapter)
     val touchHelper = ItemTouchHelper(dragCallback)
     private var job: Job? = null
     private var addImageItem: MenuItem? = null
+    lateinit var binding: ListImageFragBinding
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        binding = ListImageFragBinding.inflate(inflater)
+    ): View? {
+        binding = ListImageFragBinding.inflate(layoutInflater)
+        adView = binding.adView
         return binding.root
-       // (базовая версия) return inflater.inflate(R.layout.list_image_frag, container, false)
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpToolbar()
+        binding.apply {
+            touchHelper.attachToRecyclerView(rcViewSelectImage)
+            rcViewSelectImage.layoutManager = LinearLayoutManager(activity)
+            rcViewSelectImage.adapter = adapter
+            if (newList != null) resizeSelectedImages(newList, true)
+        }
 
-        // (базовая версия) val rcView = view.findViewById<RecyclerView>(R.id.rcViewSelectImage)
-        touchHelper.attachToRecyclerView(binding.rcViewSelectImage)
-        binding.rcViewSelectImage.layoutManager = LinearLayoutManager(activity)
-        binding.rcViewSelectImage.adapter = adapter
-        if (newList != null) resizeSelectedImages(newList, true)
 
     }
     override fun onItemDelete() {
@@ -65,6 +68,11 @@ class ImageListFrag(private val fragCloseInterface : FragmentCloseInterface,
         super.onDetach()
         fragCloseInterface.onFragClose(adapter.mainArray)
         job?.cancel()
+    }
+
+    override fun onClose() {
+        super.onClose()
+        activity?.supportFragmentManager?.beginTransaction()?.remove(this@ImageListFrag)?.commit()
     }
 
     private fun resizeSelectedImages(newList: ArrayList<String>, needClear: Boolean){
@@ -84,7 +92,8 @@ class ImageListFrag(private val fragCloseInterface : FragmentCloseInterface,
         addImageItem = binding.tb.menu.findItem(R.id.id_add_image)
 
         binding.tb.setNavigationOnClickListener {
-            activity?.supportFragmentManager?.beginTransaction()?.remove(this)?.commit()
+
+            showInterAd()
         }
 
         deleteItem.setOnMenuItemClickListener {
