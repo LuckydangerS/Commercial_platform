@@ -11,6 +11,7 @@ import com.fxn.pix.Pix
 import com.fxn.utility.PermUtil
 import com.kicks.off.`in`.life.android.commercial_platform.R
 import com.kicks.off.`in`.life.android.commercial_platform.adapters.ImageAdapter
+import com.kicks.off.`in`.life.android.commercial_platform.data.Ad
 import com.kicks.off.`in`.life.android.commercial_platform.database.DbManager
 import com.kicks.off.`in`.life.android.commercial_platform.databinding.ActivityEditAdsBinding
 import com.kicks.off.`in`.life.android.commercial_platform.dialogs.DialogSpinnerHelper
@@ -25,6 +26,7 @@ class EditAdsAct : AppCompatActivity(), FragmentCloseInterface {
     lateinit var binding:ActivityEditAdsBinding
     private var dialog = DialogSpinnerHelper()
     lateinit var imageAdapter : ImageAdapter
+    private val dbManager = DbManager()
     var editImagePos = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -107,8 +109,22 @@ class EditAdsAct : AppCompatActivity(), FragmentCloseInterface {
     }
 
     fun onClickPublish(view: View){
-        val dbManager = DbManager()
-        dbManager.publishAd()
+
+        dbManager.publishAd(fillAd())
+    }
+
+    private fun fillAd(): Ad{
+        val ad: Ad
+        binding.apply {
+            ad = Ad(tvCountry.text.toString(),
+                tvCity.text.toString(),
+                editTel.text.toString(),
+                checkBoxWithSend.isChecked.toString(),
+                tvCat.text.toString(),
+                edPrice.text.toString(),
+                editDescription.text.toString(), dbManager.db.push().key)
+        }
+        return ad
     }
 
     override fun onFragClose(list : ArrayList<Bitmap>) {
